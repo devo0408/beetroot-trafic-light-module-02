@@ -57,6 +57,18 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define PEDESTRIANS_BUTTON_Pin GPIO_PIN_1
+#define PEDESTRIANS_BUTTON_GPIO_Port GPIOA
+#define RED_Pin GPIO_PIN_2
+#define RED_GPIO_Port GPIOA
+#define YELLOW_Pin GPIO_PIN_3
+#define YELLOW_GPIO_Port GPIOA
+#define GREEN_Pin GPIO_PIN_4
+#define GREEN_GPIO_Port GPIOA
+#define PEDESTRIANS_RED_Pin GPIO_PIN_5
+#define PEDESTRIANS_RED_GPIO_Port GPIOA
+#define PEDESTRIANS_GREEN_Pin GPIO_PIN_6
+#define PEDESTRIANS_GREEN_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
 
