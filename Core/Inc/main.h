@@ -49,6 +49,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -59,16 +61,16 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define PEDESTRIANS_BUTTON_Pin GPIO_PIN_1
 #define PEDESTRIANS_BUTTON_GPIO_Port GPIOA
-#define RED_Pin GPIO_PIN_2
-#define RED_GPIO_Port GPIOA
-#define YELLOW_Pin GPIO_PIN_3
-#define YELLOW_GPIO_Port GPIOA
-#define GREEN_Pin GPIO_PIN_4
-#define GREEN_GPIO_Port GPIOA
 #define PEDESTRIANS_RED_Pin GPIO_PIN_5
 #define PEDESTRIANS_RED_GPIO_Port GPIOA
 #define PEDESTRIANS_GREEN_Pin GPIO_PIN_6
 #define PEDESTRIANS_GREEN_GPIO_Port GPIOA
+#define YELLOW_Pin GPIO_PIN_7
+#define YELLOW_GPIO_Port GPIOA
+#define GREEN_Pin GPIO_PIN_0
+#define GREEN_GPIO_Port GPIOB
+#define RED_Pin GPIO_PIN_4
+#define RED_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
