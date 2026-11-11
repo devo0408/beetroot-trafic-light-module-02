@@ -7,9 +7,9 @@
 
 const struct Phase phases[PHASE_COUNT] = {
     // red    yellow green  blink  seconds
-    { false, false, true,  false, GREEN_SECONDS },           // Green (minimum)
+    { false, false, true,  false, GREEN_SECONDS },           // Green
     { false, false, true,  true,  GREEN_BLINKING_SECONDS },  // Green blinking
     { false, true,  false, false, YELLOW_SECONDS },          // Yellow
-    { true,  false, false, false, RED_SECONDS },             // Red (pedestrians: green)
+    { true,  false, false, false, RED_SECONDS },             // Red
     { true,  true,  false, false, RED_YELLOW_SECONDS },      // Red + Yellow
 };

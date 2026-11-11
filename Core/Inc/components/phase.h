@@ -16,8 +16,8 @@ struct Phase {
     uint8_t seconds;
 };
 
-#define PHASE_COUNT 5 // regular trafic lighter phases
+#define PHASE_COUNT 5 // regular trafic lighter phase count
 
-extern const struct Phase phases[PHASE_COUNT];
+extern const struct Phase phases[PHASE_COUNT]; // regular trafic lighter phases
 
 #endif //BEETROOT_TRAFIC_LIGHT_MODULE_02_PHASE_H
