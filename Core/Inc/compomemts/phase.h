@@ -16,7 +16,7 @@ struct Phase {
     uint8_t seconds;
 };
 
-#define PHASE_COUNT 5
+#define PHASE_COUNT 5 // regular trafic lighter phases
 
 extern const struct Phase phases[PHASE_COUNT];
 
