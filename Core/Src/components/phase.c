@@ -1,7 +1,7 @@
 //
 // Created by Denys Vovk on 11.11.2026.
 //
-#include "compomemts/phase.h"
+#include "components/phase.h"
 #include "traffic_light_config.h"
 #include <stdbool.h>
 
