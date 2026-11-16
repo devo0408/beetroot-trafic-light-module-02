@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "traffic_light_app.h"
+#include "components/health_check.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -103,6 +104,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    health_check_update();
   }
   /* USER CODE END 3 */
 }
@@ -271,12 +273,23 @@ static void MX_GPIO_Init(void)
   /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(LED_HEALTH_GPIO_Port, LED_HEALTH_Pin, GPIO_PIN_SET);
+
+  /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, PEDESTRIANS_GREEN_Pin|PEDESTRIANS_RED_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : LED_HEALTH_Pin */
+  GPIO_InitStruct.Pin = LED_HEALTH_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(LED_HEALTH_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PEDESTRIANS_BUTTON_Pin */
   GPIO_InitStruct.Pin = PEDESTRIANS_BUTTON_Pin;

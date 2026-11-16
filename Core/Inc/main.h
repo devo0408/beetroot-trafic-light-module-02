@@ -59,6 +59,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define LED_HEALTH_Pin GPIO_PIN_13
+#define LED_HEALTH_GPIO_Port GPIOC
 #define PEDESTRIANS_BUTTON_Pin GPIO_PIN_1
 #define PEDESTRIANS_BUTTON_GPIO_Port GPIOA
 #define PEDESTRIANS_GREEN_Pin GPIO_PIN_5
