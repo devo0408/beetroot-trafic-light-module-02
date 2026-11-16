@@ -11,4 +11,6 @@ void traffic_light_init(TIM_HandleTypeDef *phase_timer, TIM_HandleTypeDef *lamp_
 
 void traffic_light_on_phase_end(void);
 
+void traffic_light_request_pedestrian(void);
+
 #endif //BEETROOT_TRAFIC_LIGHT_MODULE_02_TRAFFIC_LIGHT_H

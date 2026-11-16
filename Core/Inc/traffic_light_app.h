@@ -9,4 +9,6 @@
 
 void trafic_light_app_start(TIM_HandleTypeDef *phase_timer, TIM_HandleTypeDef *lamp_timer);
 
+void trafic_light_app_update(void);
+
 #endif //BEETROOT_TRAFIC_LIGHT_MODULE_02_TRAFIC_LIGHT_APP_H
