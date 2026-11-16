@@ -11,11 +11,6 @@
 #define LAMP_YELLOW TIM_CHANNEL_2
 #define LAMP_GREEN  TIM_CHANNEL_3
 
-// Indexes in phases[]
-#define PHASE_GREEN          0
-#define PHASE_GREEN_BLINKING 1
-#define PHASE_YELLOW         2
-
 static TIM_HandleTypeDef *phase_timer;
 static TIM_HandleTypeDef *lamp_timer;
 

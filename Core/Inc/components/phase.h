@@ -18,6 +18,11 @@ struct Phase {
 
 #define PHASE_COUNT 5 // regular trafic lighter phase count
 
+// Indexes in phases[]
+#define PHASE_GREEN          0
+#define PHASE_GREEN_BLINKING 1
+#define PHASE_YELLOW         2
+
 extern const struct Phase phases[PHASE_COUNT]; // regular trafic lighter phases
 
 #endif //BEETROOT_TRAFIC_LIGHT_MODULE_02_PHASE_H
