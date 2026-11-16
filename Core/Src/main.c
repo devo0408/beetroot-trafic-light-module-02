@@ -21,7 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "traffic_light_app.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -93,7 +93,7 @@ int main(void)
   MX_TIM2_Init();
   MX_TIM3_Init();
   /* USER CODE BEGIN 2 */
-
+  trafic_light_app_start(&htim2, &htim3);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -276,7 +276,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOA, PEDESTRIANS_RED_Pin|PEDESTRIANS_GREEN_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(GPIOA, PEDESTRIANS_GREEN_Pin|PEDESTRIANS_RED_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin : PEDESTRIANS_BUTTON_Pin */
   GPIO_InitStruct.Pin = PEDESTRIANS_BUTTON_Pin;
@@ -284,8 +284,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(PEDESTRIANS_BUTTON_GPIO_Port, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PEDESTRIANS_RED_Pin PEDESTRIANS_GREEN_Pin */
-  GPIO_InitStruct.Pin = PEDESTRIANS_RED_Pin|PEDESTRIANS_GREEN_Pin;
+  /*Configure GPIO pins : PEDESTRIANS_GREEN_Pin PEDESTRIANS_RED_Pin */
+  GPIO_InitStruct.Pin = PEDESTRIANS_GREEN_Pin|PEDESTRIANS_RED_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

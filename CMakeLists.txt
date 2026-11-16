@@ -45,6 +45,10 @@ target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
+    Core/Src/components/phase.c
+    Core/Src/components/phase_switch.c
+    Core/Src/components/traffic_light.c
+    Core/Src/trafic_light_app.c
 )
 
 # Add include paths

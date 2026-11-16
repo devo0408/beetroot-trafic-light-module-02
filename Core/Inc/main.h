@@ -61,10 +61,10 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define PEDESTRIANS_BUTTON_Pin GPIO_PIN_1
 #define PEDESTRIANS_BUTTON_GPIO_Port GPIOA
-#define PEDESTRIANS_RED_Pin GPIO_PIN_5
-#define PEDESTRIANS_RED_GPIO_Port GPIOA
-#define PEDESTRIANS_GREEN_Pin GPIO_PIN_6
+#define PEDESTRIANS_GREEN_Pin GPIO_PIN_5
 #define PEDESTRIANS_GREEN_GPIO_Port GPIOA
+#define PEDESTRIANS_RED_Pin GPIO_PIN_6
+#define PEDESTRIANS_RED_GPIO_Port GPIOA
 #define YELLOW_Pin GPIO_PIN_7
 #define YELLOW_GPIO_Port GPIOA
 #define GREEN_Pin GPIO_PIN_0
