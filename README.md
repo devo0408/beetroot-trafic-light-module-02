@@ -32,7 +32,7 @@ timer for vehicles starts again. A full cycle with a pedestrian call takes at le
 **66 seconds**.
 
 ```
-                 button pressed AND minimum green (30 s) elapsed
+          pedestrian request served (see Pedestrian button)
  ┌─► GREEN (≥ 30 s) ────────────────────────────► GREEN BLINKING (3 s) ─┐
  │      ▲  │ no call: stay green                                         │
  │      └──┘                                                             ▼
@@ -62,8 +62,10 @@ according to the current phase:
 
 | Button pressed during            | Behaviour                                                                 |
 |----------------------------------|---------------------------------------------------------------------------|
-| Phase 1, green on less than 30 s | The request is remembered; the switch starts once the 30 s minimum ends (e.g. pressed at 10 s → switch after another 20 s). |
-| Phase 1, green on 30 s or longer | The switch to phase 2 starts immediately.                                 |
+| Phase 1, green on less than 20 s | The request is remembered; the switch starts once the 30 s minimum ends (e.g. pressed at 10 s → switch after another 20 s). |
+| Phase 1, green on less than 30 s | Vehicles keep green for 10 more seconds after the press, then the switch starts (e.g. pressed at 25 s → switch at 35 s). |
+| Phase 1, green on 30 s or longer | Vehicles keep green for 10 more seconds after the press, then the switch starts. |
+| Phase 1, request already stored  | Ignored: pressing again does not extend the green.                        |
 | Phases 2–3                       | The pedestrian phase is already coming; the press is served by this cycle. |
 | Phases 4–5                       | The request is queued. The current red is **not** extended: the cycle finishes, returns to phase 1, waits the mandatory 30 s of vehicle green, and only then runs phases 2–5 again. |
 
