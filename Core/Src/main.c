@@ -104,6 +104,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+    trafic_light_app_update();
     health_check_update();
   }
   /* USER CODE END 3 */

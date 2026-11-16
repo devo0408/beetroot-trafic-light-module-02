@@ -10,10 +10,17 @@
 #define LAMP_YELLOW TIM_CHANNEL_2
 #define LAMP_GREEN  TIM_CHANNEL_3
 
+// Indexes in phases[]
+#define PHASE_GREEN          0
+#define PHASE_GREEN_BLINKING 1
+#define PHASE_YELLOW         2
+
 static TIM_HandleTypeDef *phase_timer;
 static TIM_HandleTypeDef *lamp_timer;
 
-static uint8_t current_phase;
+static volatile uint8_t current_phase;
+static volatile bool pedestrian_request;
+static volatile bool min_green_done;
 
 static uint32_t lamp_duty(bool on, bool blinking)
 {
@@ -34,6 +41,9 @@ static void enter_phase(uint8_t index)
 {
   const struct Phase *phase = &phases[index];
   current_phase = index;
+
+  if (index == PHASE_GREEN)
+    min_green_done = false;
 
   __HAL_TIM_SET_COUNTER(lamp_timer, 0);
   __HAL_TIM_SET_COMPARE(lamp_timer, LAMP_RED, lamp_duty(phase->red, phase->is_blinking));
@@ -67,5 +77,37 @@ void traffic_light_init(TIM_HandleTypeDef *phase_tim, TIM_HandleTypeDef *lamp_ti
 
 void traffic_light_on_phase_end(void)
 {
+  if (current_phase == PHASE_GREEN)
+  {
+    min_green_done = true;
+
+    if (!pedestrian_request)
+      return;  // no call: stay green
+
+    pedestrian_request = false;
+  }
+
   enter_phase(next_phase(current_phase));
+}
+
+void traffic_light_request_pedestrian(void)
+{
+  // Runs in the main loop; keep the phase timer interrupt out while we decide
+  uint32_t primask = __get_PRIMASK();
+  __disable_irq();
+
+  if (current_phase == PHASE_GREEN && min_green_done)
+  {
+    // Minimum green already served: switch right away
+    enter_phase(next_phase(PHASE_GREEN));
+    __HAL_TIM_CLEAR_FLAG(phase_timer, TIM_FLAG_UPDATE);
+  }
+  else if (current_phase != PHASE_GREEN_BLINKING && current_phase != PHASE_YELLOW)
+  {
+    // Served after the (next) minimum green
+    pedestrian_request = true;
+  }
+  // Green blinking / yellow: the pedestrian phase is already coming
+
+  __set_PRIMASK(primask);
 }
