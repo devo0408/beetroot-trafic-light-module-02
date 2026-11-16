@@ -1,0 +1,10 @@
+//
+// Created by Denys Vovk on 16.11.2026.
+//
+
+#ifndef BEETROOT_TRAFIC_LIGHT_MODULE_02_HEALTH_CHECK_H
+#define BEETROOT_TRAFIC_LIGHT_MODULE_02_HEALTH_CHECK_H
+
+void health_check_update(void);
+
+#endif //BEETROOT_TRAFIC_LIGHT_MODULE_02_HEALTH_CHECK_H
